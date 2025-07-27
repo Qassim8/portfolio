@@ -1,0 +1,44 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+body{
+  background-color: rgb(37, 37, 75);
+  font-family: "Fredericka the Great", serif;
+}
+.active{
+  background-color: rgb(37, 37, 75);
+}
+.text-body{
+  color: rgb(37, 37, 75) !important;
+}
+.bg-body{
+  background-color: rgb(37, 37, 75 ) !important;
+}
+li a:hover{
+  background-color: rgb(37, 37, 75);
+}
+/*  --------------
+    page container
+    -------------- */
+.container {
+  padding-right: 15px;
+  padding-left: 15px;
+  margin-right: auto;
+  margin-left: auto;
+}
+@media (min-width: 768px) {
+  .container {
+    width: 760px;
+  }
+}
+@media (min-width: 992px) {
+  .container {
+    width: 990px;
+  }
+}
+@media (min-width: 1200px) {
+  .container {
+    width: 1200px;
+  }
+}
