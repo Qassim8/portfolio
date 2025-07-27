@@ -23,7 +23,11 @@ const Header = () => {
     <header
       className={` md:px-0 sticky top-0 z-50 ${scrolled ? "bg-amber-400" : ""}`}
     >
-      <nav className={`container mx-auto relative flex justify-between items-center my-5 p-2 ${scrolled? "bg-transparent" : "bg-amber-400/90"} rounded-md`}>
+      <nav
+        className={`container mx-auto relative flex justify-between items-center my-5 p-2 ${
+          scrolled ? "bg-transparent" : "bg-amber-400/90"
+        } rounded-md`}
+      >
         <h1 className="block md:hidden font-bold text-[25px] text-body py-2">
           {"<MQ />"}
         </h1>
