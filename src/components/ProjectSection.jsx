@@ -20,7 +20,7 @@ const ProjectSection = () => {
       description:
         "A user-friendly hotel booking platform that allows users to browse hotels, apply filters based on location, price, or category, select rooms, and complete reservations. Users can also modify or cancel bookings if the check-in date hasn’t passed.",
       image: villans,
-      link: "",
+      link: "https://villans.vercel.app/villans",
     },
     {
       title: "Onpoint",

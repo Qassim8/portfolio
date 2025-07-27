@@ -33,7 +33,7 @@ const Header = () => {
         </h1>
         <div className="md:w-full flex flex-col">
           <button className="block md:hidden" onClick={() => setShow(!show)}>
-            <i className="bi bi-list font-bold text-lg text-blue-800"></i>
+            <i className="bi bi-list font-bold text-lg text-slate-900"></i>
           </button>
           <ul
             className={`${
