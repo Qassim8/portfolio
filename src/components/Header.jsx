@@ -25,7 +25,7 @@ const Header = () => {
     >
       <nav
         className={`container mx-auto relative flex justify-between items-center my-5 p-2 ${
-          scrolled ? "bg-transparent" : "bg-amber-400/90"
+          scrolled ? "bg-transparent" : "bg-amber-400/80"
         } rounded-md`}
       >
         <h1 className="block md:hidden font-bold text-[25px] text-body py-2">
