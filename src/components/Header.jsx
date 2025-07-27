@@ -34,7 +34,7 @@ const Header = () => {
           <ul
             className={`${
               show ? "flex" : "hidden"
-            } absolute md:relative top-full bg-pink-400 md:bg-transparent rounded-md p-2 md:p-0 end-0 w-full font-medium md:flex flex-col mt-2 md:flex-row md:justify-between md:items-center gap-2 md:gap-0 md:mt-0 z-50`}
+            } absolute md:relative top-full bg-amber-500 md:bg-transparent rounded-md p-2 md:p-0 end-0 w-full font-medium md:flex flex-col mt-2 md:flex-row md:justify-between md:items-center gap-2 md:gap-0 md:mt-0 z-50`}
           >
             <li>
               <NavLink
