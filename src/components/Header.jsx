@@ -21,7 +21,7 @@ const Header = () => {
 
   return (
     <header
-      className={` md:px-0 sticky top-0 z-50 ${scrolled ? "bg-amber-400" : ""}`}
+      className={` md:px-0 sticky top-0 z-40 ${scrolled ? "bg-amber-400" : ""}`}
     >
       <nav
         className={`container mx-auto relative flex justify-between items-center my-5 p-2 ${
