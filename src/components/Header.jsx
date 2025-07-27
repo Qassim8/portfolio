@@ -21,11 +21,11 @@ const Header = () => {
 
   return (
     <header
-      className={` md:px-0 sticky top-0 z-40 ${scrolled ? "bg-amber-400" : ""}`}
+      className={` md:px-0 sticky top-0 z-50 ${scrolled ? "bg-amber-400" : ""}`}
     >
       <nav
         className={`container mx-auto relative flex justify-between items-center my-5 p-2 ${
-          scrolled ? "bg-transparent" : "bg-amber-400/80"
+          scrolled ? "bg-transparent" : "bg-amber-400"
         } rounded-md`}
       >
         <h1 className="block md:hidden font-bold text-[25px] text-body py-2">
@@ -33,7 +33,7 @@ const Header = () => {
         </h1>
         <div className="md:w-full flex flex-col">
           <button className="block md:hidden" onClick={() => setShow(!show)}>
-            <i className="bi bi-list text-lg text-blute-800"></i>
+            <i className="bi bi-list font-bold text-lg text-blue-800"></i>
           </button>
           <ul
             className={`${
