@@ -2,22 +2,25 @@ import { Link } from "react-router-dom";
 
 const HeroSection = () => {
   return (
-    <div data-aos="fade-up" className="flex flex-col md:flex-row items-center gap-20 text-center md:text-start py-16 md:my-32">
+    <div
+      data-aos="fade-up"
+      className="flex flex-col md:flex-row items-center gap-20 text-center md:text-start py-16 md:my-32"
+    >
       <div className="text-body text-[20px]">
         Salam(); I'm
         <h2 className="text-main text-[35px] font-bold">Mohammed Elgasim.</h2>
         <p className="text-body text-[40px]">I design & code for web.</p>
         <p className="text-body">
-          A Frontend Developer with a passion for crafting stunning and responsive
-          web applications. Proficient in HTML, CSS, and JavaScript, as well as
-          frameworks and libraries like Bootstrap, Tailwindcss, React, SASS,
-          Nextjs.
+          A Frontend Developer with a passion for crafting stunning and
+          responsive web applications. Proficient in HTML, CSS, and JavaScript,
+          as well as frameworks and libraries like Bootstrap, Tailwindcss,
+          React, SASS, Nextjs.
         </p>
         <div className="flex justify-center md:justify-start gap-4 mt-5">
           <a
             download
             rel="noopener noreferrer"
-            href="https://drive.google.com/uc?export=download&id=13HJPjA9gIQhIESHtu-5Q-eXoBVNbrKJ7"
+            href="https://drive.google.com/uc?export=download&id=1zO4rS1mCFEhhj5BxtMU6bWmvEfsgoLgP"
             className="flex justify-center items-center gap-3 text-sm md:text-md px-4 md:w-1/4 p-2 text-main border border-[#4aacf2] rounded-md duration-300 hover:!text-white hover:bg-[#4aacf2]"
           >
             <i className="bi bi-download text-lg"></i>
