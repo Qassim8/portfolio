@@ -2,13 +2,13 @@ import React from 'react'
 
 function AboutMe() {
   return (
-    <section className="py-16 md:py-24 text-white">
+    <section data-aos="fade-right" className="py-16 md:py-24 text-body">
       <div className="container mx-auto text-center md:text-start">
-        <h2 className="text-3xl md:text-4xl font-bold text-amber-400 mb-4">
+        <h2 className="text-3xl md:text-4xl font-bold text-main mb-4">
           About Me
         </h2>
         <p className="text-lg md:text-xl mb-6 leading-relaxed">
-          I'm <span className="font-semibold text-white">Mohammed Elgasim</span>
+          I'm <span className="font-semibold text-body">Mohammed Elgasim</span>
           , a web developer I specialize in transforming creative designs into
           interactive websites using technologies like HTML, CSS, JavaScript,
           React, Tailwind CSS, and Next.js. I'm passionate about building clean
@@ -21,10 +21,10 @@ function AboutMe() {
           technology.
         </p>
         <div className="mt-8">
-          <h3 className="text-2xl font-semibold text-amber-300 mb-3">
+          <h3 className="text-2xl font-semibold text-main mb-3">
             Interests
           </h3>
-          <ul className="list-disc list-inside text-base space-y-2 text-slate-300">
+          <ul className="list-disc list-inside text-base space-y-2 text-slate-500">
             <li>Developing systems using Odoo ERP</li>
             <li>UI/UX design and user experience optimization</li>
             <li>Integrating AI into frontend to enhance user interaction</li>

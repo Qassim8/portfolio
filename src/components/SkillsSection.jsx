@@ -7,7 +7,6 @@ import sassIcon from "../images/sass.png";
 import physicsIcon from "../images/physics.png";
 import reduxIcon from "../images/redux.png";
 import nextIcon from "../images/next-js.png";
-import nodeIcon from "../images/node-js.png";
 import SectionHeader from "./SectionHeader";
 
 const SkillsSection = () => {
@@ -21,10 +20,8 @@ const SkillsSection = () => {
     physicsIcon,
     reduxIcon,
     nextIcon,
-    nodeIcon,
   ];
 
-  icons.map((r) => console.log(r));
 
   return (
     <div className="py-20 container mx-auto">
@@ -32,10 +29,10 @@ const SkillsSection = () => {
         title="mySkills"
         desc="here i show you most of the technical and basic skills that i have"
       />
-      <div className="grid md:grid-cols-4 gap-5">
+      <div data-aos="zoom-out" className="grid md:grid-cols-3 gap-5">
         {icons.map((icon, idx) => (
           <div
-            className="p-8 bg-amber-100 border-2 border-amber-200 rounded-md flex justify-center items-center"
+            className="p-8 bg-blue-100 border border-blue-400 rounded-md flex justify-center items-center duration-300 hover:scale-105 hover:bg-blue-900"
             key={idx}
           >
             <div className="w-[80px] h-[80px] flex justify-center items-center">

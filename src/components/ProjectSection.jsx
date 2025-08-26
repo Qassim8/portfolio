@@ -50,7 +50,7 @@ const ProjectSection = () => {
         title="myProjects"
         desc="here i show you most of the technical and basic skills that i have"
       />
-      <div className="grid md:grid-cols-3 gap-10">
+      <div data-aos="zoom-in-up" className="grid md:grid-cols-3 gap-10">
         {projects.map((project, idx) => (
           <ProjectCard key={idx} myProject={project} />
         ))}

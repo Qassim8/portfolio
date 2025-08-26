@@ -7,13 +7,12 @@ const Header = () => {
 
   useEffect(() => {
     const handleScroll = () => {
-      const isScrolled = window.scrollY > 30; // غير الرقم حسب ما تحب
+      const isScrolled = window.scrollY > 30;
       setScrolled(isScrolled);
     };
 
     window.addEventListener("scroll", handleScroll);
 
-    // تنظيف عند إلغاء الكمبوننت
     return () => {
       window.removeEventListener("scroll", handleScroll);
     };
@@ -21,11 +20,13 @@ const Header = () => {
 
   return (
     <header
-      className={` md:px-0 sticky top-0 z-50 ${scrolled ? "bg-amber-400" : ""}`}
+      className={` md:px-0 sticky top-0 z-50 duration-500 ${
+        scrolled ? "bg-main" : ""
+      }`}
     >
       <nav
         className={`container mx-auto relative flex justify-between items-center my-5 p-2 ${
-          scrolled ? "bg-transparent" : "bg-amber-400"
+          scrolled ? "bg-transparent" : "bg-main"
         } rounded-md`}
       >
         <h1 className="block md:hidden font-bold text-[25px] text-body py-2">
@@ -33,17 +34,18 @@ const Header = () => {
         </h1>
         <div className="md:w-full flex flex-col">
           <button className="block md:hidden" onClick={() => setShow(!show)}>
-            <i className="bi bi-list font-bold text-lg text-slate-900"></i>
+            <i className="bi bi-list font-bold text-2xl text-slate-900"></i>
           </button>
           <ul
             className={`${
               show ? "flex" : "hidden"
-            } absolute md:relative top-full bg-amber-500 md:bg-transparent rounded-md p-2 md:p-0 end-0 w-full font-medium md:flex flex-col mt-2 md:flex-row md:justify-between md:items-center gap-2 md:gap-0 md:mt-0 z-50`}
+            } text-white absolute md:relative top-full bg-main md:bg-transparent rounded-md p-2 md:p-0 end-0 w-full font-medium md:flex flex-col mt-2 md:flex-row md:justify-between md:items-center gap-2 md:gap-0 md:mt-0 z-50`}
           >
             <li>
               <NavLink
                 to="/"
-                className="block py-2 px-10 text-white rounded duration-300 md:text-white hover:bg-body"
+                onClick={() => setShow(false)}
+                className="block py-2 px-10 rounded duration-300 md:text-white hover:bg-white hover:text-body"
                 aria-current="page"
               >
                 Home
@@ -52,7 +54,8 @@ const Header = () => {
             <li>
               <NavLink
                 to="about"
-                className="block py-2 px-10 text-white rounded duration-300 md:border-0 hover:bg-body"
+                onClick={() => setShow(false)}
+                className="block py-2 px-10 rounded duration-300 md:border-0 hover:bg-body"
               >
                 About
               </NavLink>
@@ -63,7 +66,8 @@ const Header = () => {
             <li>
               <NavLink
                 to="project"
-                className="block py-2 px-10 text-white rounded duration-300 md:border-0 hover:bg-body"
+                onClick={() => setShow(false)}
+                className="block py-2 px-10 rounded duration-300 md:border-0 hover:bg-white hover:text-body"
               >
                 Projects
               </NavLink>
@@ -71,7 +75,8 @@ const Header = () => {
             <li>
               <NavLink
                 to="/contact"
-                className="block py-2 px-10 text-white rounded duration-300 md:border-0 hover:bg-body"
+                onClick={() => setShow(false)}
+                className="block py-2 px-10 rounded duration-300 md:border-0 hover:bg-body"
               >
                 Contact
               </NavLink>

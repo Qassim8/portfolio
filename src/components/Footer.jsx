@@ -2,10 +2,11 @@ import React from 'react'
 
 function Footer() {
   return (
-      <footer className='md:text-lg p-5 bg-slate-800 text-amber-400 text-center'>
-          Alright reversed &copy; 2023 Mohammed Elgasim
+    <footer className="md:text-lg p-5 bg-[#205e8f] text-body text-center">
+      Alright reserved &copy; 2023{" "}
+      <span className="text-main">Moh Developer</span>
     </footer>
-  )
+  );
 }
 
 export default Footer

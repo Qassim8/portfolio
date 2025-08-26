@@ -3,11 +3,13 @@
 @tailwind utilities;
 
 body{
-  background-color: rgb(37, 37, 75);
-  font-family: "Fredericka the Great", serif;
+  /* background-color: rgb(37, 37, 75); */
+  font-family: "Nunito", serif;
 }
 .active{
-  background-color: rgb(37, 37, 75);
+  /* background-color: rgb(37, 37, 75); */
+  background-color: white;
+  color: rgb(37, 37, 75) !important;
 }
 .text-body{
   color: rgb(37, 37, 75) !important;
@@ -16,8 +18,19 @@ body{
   background-color: rgb(37, 37, 75 ) !important;
 }
 li a:hover{
-  background-color: rgb(37, 37, 75);
+  background-color: white;
+  color: rgb(37, 37, 75);
 }
+.bg-main{
+  background-color: #4aacf2;
+}
+.text-main{
+  color: #4aacf2 !important;
+}
+.bg-alt{
+  background-color: #87c6f3;
+}
+.text-alt{}
 /*  --------------
     page container
     -------------- */
