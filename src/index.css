@@ -2,56 +2,39 @@
 @tailwind components;
 @tailwind utilities;
 
-body{
+html,
+body {
   /* background-color: rgb(37, 37, 75); */
   font-family: "Nunito", serif;
+  scroll-behavior: smooth;
 }
-.active{
+.active {
   /* background-color: rgb(37, 37, 75); */
   background-color: white;
   color: rgb(37, 37, 75) !important;
 }
-.text-body{
+.text-body {
   color: rgb(37, 37, 75) !important;
 }
-.bg-body{
-  background-color: rgb(37, 37, 75 ) !important;
+.bg-body {
+  background-color: rgb(37, 37, 75) !important;
 }
-li a:hover{
+li a:hover {
   background-color: white;
   color: rgb(37, 37, 75);
 }
-.bg-main{
+.bg-main {
   background-color: #4aacf2;
 }
-.text-main{
+.text-main {
   color: #4aacf2 !important;
 }
-.bg-alt{
+.bg-alt {
   background-color: #87c6f3;
 }
-.text-alt{}
 /*  --------------
     page container
     -------------- */
 .container {
-  padding-right: 15px;
-  padding-left: 15px;
-  margin-right: auto;
-  margin-left: auto;
-}
-@media (min-width: 768px) {
-  .container {
-    width: 760px;
-  }
-}
-@media (min-width: 992px) {
-  .container {
-    width: 990px;
-  }
-}
-@media (min-width: 1200px) {
-  .container {
-    width: 1200px;
-  }
+  @apply px-3 md:px-0 mx-auto;
 }

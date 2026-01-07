@@ -1,10 +1,10 @@
 import ProjectCard from "./ProjectCard";
-import SectionHeader from "./SectionHeader"
-import zus from "../images/zus.jpeg"
-import villans from "../images/villans.jpg"
-import onpoint from "../images/onpoints.net.jpeg"
-import bareeq from "../images/bareeq.jpeg"
-import doctory from "../images/doctory.jpeg"
+import SectionHeader from "./SectionHeader";
+import zus from "../images/zus.jpeg";
+import villans from "../images/villans.jpg";
+import onpoint from "../images/onpoints.net.jpeg";
+import bareeq from "../images/bareeq.jpeg";
+import doctory from "../images/doctory.jpeg";
 
 const ProjectSection = () => {
   const projects = [
@@ -45,15 +45,17 @@ const ProjectSection = () => {
     },
   ];
   return (
-    <section className="py-20 container mx-auto">
-      <SectionHeader
-        title="myProjects"
-        desc="here i show you most of the technical and basic skills that i have"
-      />
-      <div data-aos="zoom-in-up" className="grid md:grid-cols-3 gap-10">
-        {projects.map((project, idx) => (
-          <ProjectCard key={idx} myProject={project} />
-        ))}
+    <section id="projects" className="py-16 bg-slate-50">
+      <div className="container">
+        <SectionHeader
+          title="myProjects"
+          desc="here i show you most of the technical and basic skills that i have"
+        />
+        <div data-aos="zoom-in-up" className="grid md:grid-cols-3 gap-5">
+          {projects.map((project, idx) => (
+            <ProjectCard key={idx} myProject={project} />
+          ))}
+        </div>
       </div>
     </section>
   );
