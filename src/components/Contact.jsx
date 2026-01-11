@@ -23,7 +23,7 @@ const ContactMe = () => {
                 target="_blank"
                 href="https://wa.me/201501248489"
                 rel="noopener noreferrer"
-                className="block my-5 text-main"
+                className="block my-5 text-sm md:text-md text-main"
               >
                 Telephone: +20-150-12484-89
               </a>
@@ -32,7 +32,7 @@ const ContactMe = () => {
               <div className="relative left-1/2 -translate-x-1/2 flex justify-center items-center h-[70px] w-[70px] bg-white rounded-full">
                 <i className="bi bi-geo-alt text-body"></i>
               </div>
-              <p className="my-5 text-main">
+              <p className="my-5 text-sm md:text-md text-main">
                 Location: Badr-City, Cairo, Egypt
               </p>
             </div>
@@ -44,7 +44,7 @@ const ContactMe = () => {
                 target="_blank"
                 href="mailto:mohammed___dev@hotmail.com"
                 rel="noopener noreferrer"
-                className="block my-5 text-main"
+                className="block text-sm md:text-md my-5 text-main"
               >
                 Email: mohammed___dev@hotmail.com
               </a>
