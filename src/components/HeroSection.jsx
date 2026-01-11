@@ -39,7 +39,7 @@ const HeroSection = () => {
             </a>
           </div>
         </div>
-        <div className="order-first md:order-last w-[250px] md:w-[350px] h-full relative before:absolute before:w-full before:h-full before:top-0 before:left-0 before:border before:border-[#4aacf2] before:rounded-full before:-z-10">
+        <div className="order-first md:order-last w-[250px] md:w-[350px] h-full relative before:absolute before:w-full before:h-full before:top-0 before:left-0 before:border-2 before:border-[#4aacf2] before:rounded-full before:-z-10">
           <img
             src={require("../images/avatar.png")}
             alt="avatar"
