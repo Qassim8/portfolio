@@ -1,3 +1,4 @@
+import ContactForm from "./ContactForm";
 import SectionHeader from "./SectionHeader";
 
 const ContactMe = () => {
@@ -7,34 +8,8 @@ const ContactMe = () => {
         title="ContactMe"
         desc="if you want my services just contact me in what you want"
       />
-      <div className="container flex flex-col md:flex-row justify-between gap-20">
-        <form
-          data-aos="fade-right"
-          className="w-full flex flex-col gap-5 md:w-2/3"
-        >
-          <input
-            type="text"
-            className="text-body bg-blue-100/10 w-full border border-blue-300 p-4 rounded-md outline-none"
-            placeholder="Your Name"
-          />
-          <input
-            type="number"
-            className="text-body bg-blue-100/10 w-full border border-blue-300 p-4 rounded-md outline-none"
-            placeholder="Your Number "
-          />
-          <textarea
-            name="message"
-            id="mesaage"
-            className="w-full h-[250px] md:h-[300px] text-body bg-blue-100/10 p-4 resize-none border border-blue-300 outline-none rounded-md"
-            placeholder="Send message..."
-          ></textarea>
-          <button
-            type="submit"
-            className="text-main bg-transparent py-2 px-6 border border-blue-400 rounded-md duration-500 hover:!text-white hover:bg-blue-500 "
-          >
-            Send
-          </button>
-        </form>
+      <div className="container flex flex-col md:flex-row items-center gap-20">
+        <ContactForm />
         <div
           data-aos="fade-left"
           className="w-full md:w-1/3 order-first md:order-last"

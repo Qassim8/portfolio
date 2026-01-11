@@ -4,15 +4,12 @@ import SectionHeader from "./SectionHeader";
 function AboutMe() {
   return (
     <section id="about" className="py-16 text-body bg-slate-50">
-      <div
-        className="container mx-auto text-center md:text-start"
-        data-aos="fade-right"
-      >
+      <div className="container mx-auto" data-aos="fade-right">
         <SectionHeader
           title="About Me"
           desc="a words about me and what i'm interest on it"
         />
-        <p className="text-lg md:text-xl mb-6 leading-relaxed">
+        <p className="text-md md:text-xl mb-2 leading-relaxed">
           I'm <span className="font-semibold text-body">Mohammed Elgasim</span>,
           Software Developer specializing in building modern, high-performance
           web applications and transforming creative designs into scalable,
@@ -31,7 +28,7 @@ function AboutMe() {
           and crafting intuitive, user-friendly interfaces where attention to
           detail makes a real impact
         </p>
-        <p className="text-lg mb-6">
+        <p className="text-md md:text-lg mb-6">
           I believe that coding is not just about writing functions, it's about
           solving real-world problems and improving people's lives through
           technology.

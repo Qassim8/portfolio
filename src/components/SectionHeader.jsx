@@ -1,16 +1,14 @@
-
-function SectionHeader({title, desc}) {
+function SectionHeader({ title, desc }) {
   return (
     <header
       data-aos="fade-down"
-      className="pb-24 w-full md:w-[500px] relative 
-        before:absolute before:-top-1 before:start-0 before:h-1 before:w-[100px] before:bg-[#4aacf2]
-        after:absolute after:bottom-20 after:end-0 after:h-1 after:w-[100px] after:bg-[#4aacf2]"
+      className="mb-20 w-full md:w-[480px] p-3 relative border-l-4 border-l-[#4aacf2]
+        before:absolute before:-top-0 before:start-0 before:h-1 before:w-[180px] before:bg-[#4aacf2] duration-300 before:duration-500 hover:before:w-full"
     >
-      <h2 className="text-[25px] md:text-[55px] text-body">{`<${title} />`}</h2>
+      <h2 className="text-[25px] md:text-[50px] text-body">{`<${title} />`}</h2>
       <p className="text-slate-500">{desc}</p>
     </header>
   );
 }
 
-export default SectionHeader
+export default SectionHeader;

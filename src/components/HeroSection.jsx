@@ -1,15 +1,19 @@
 const HeroSection = () => {
   return (
-    <section id="home" className="h-[85vh] flex items-center">
+    <section id="home" className="md:h-[85vh] py-5 flex items-center">
       <div
         data-aos="fade-up"
         className="container relative my-auto flex flex-col md:flex-row items-center gap-20 text-center md:text-start"
       >
         <div className="text-body text-[20px]">
           Salam(); I'm
-          <h2 className="text-main text-[35px] font-bold">Mohammed Elgasim.</h2>
-          <p className="text-body text-[40px]">I design & develop software.</p>
-          <p className="text-body">
+          <h2 className="text-main text-[27px] md:text-[35px] font-bold">
+            Mohammed Elgasim.
+          </h2>
+          <p className="text-slate-600 text-[30px] md:text-[40px] font-semibold">
+            I design & develop software.
+          </p>
+          <p className="text-body text-[12px] md:text-[15px]">
             Building modern, scalable web applications with clean, maintainable
             code and meaningful user experiences — transforming ideas into
             reliable digital solutions that make a real impact.
@@ -26,6 +30,7 @@ const HeroSection = () => {
             </a>
             <a
               target="_blank"
+              rel="noreferrer"
               href="https://github.com/Qassim8"
               className="flex justify-center items-center gap-3 text-sm md:text-md px-4 md:w-1/4 p-2 text-body bg-main rounded-md duration-300 hover:!text-white hover:bg-[#205e8f]"
             >
