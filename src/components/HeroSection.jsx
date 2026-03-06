@@ -22,7 +22,7 @@ const HeroSection = () => {
             <a
               download
               rel="noopener noreferrer"
-              href="https://drive.google.com/uc?export=download&id=1zO4rS1mCFEhhj5BxtMU6bWmvEfsgoLgP"
+              href="https://drive.google.com/uc?export=download&id=1EapSQfKYV13Mi-kbN9lqdwA7GUxw0YkH"
               className="flex justify-center items-center gap-3 text-sm md:text-md px-4 md:w-1/4 p-2 text-main border border-[#4aacf2] rounded-md duration-300 hover:!text-white hover:bg-[#4aacf2]"
             >
               <i className="bi bi-download text-lg"></i>
