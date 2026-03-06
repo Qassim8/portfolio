@@ -23,7 +23,7 @@ const ProjectSection = () => {
       link: "https://villans.vercel.app/villans",
     },
     {
-      title: "Niloo",
+      title: "Niloop",
       description:
         "A website for a technology company that provides IT solutions and services. The site features a modern design with sections for company information, services offered, client testimonials, and a contact form for inquiries.",
       image: niloop,

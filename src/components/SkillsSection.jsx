@@ -4,7 +4,7 @@ import jsIcon from "../images/js.png";
 import tailwindIcon from "../images/tailwindcss.png";
 import bootstrapIcon from "../images/bootstrap.png";
 import physicsIcon from "../images/physics.png";
-import nextIcon from "../images/next-js.png";
+// import nextIcon from "../images/next-js.png";
 import SectionHeader from "./SectionHeader";
 import odoo from "../images/odoo.png";
 import python from "../images/python.png";
@@ -17,7 +17,7 @@ const SkillsSection = () => {
     { img: bootstrapIcon, title: "Bootstrap" },
     { img: tailwindIcon, title: "Tailwind" },
     { img: physicsIcon, title: "React" },
-    { img: nextIcon, title: "Next" },
+    // { img: nextIcon, title: "Next" },
     { img: python, title: "Python" },
     { img: odoo, title: "Odoo" },
   ];

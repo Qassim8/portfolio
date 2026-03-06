@@ -20,7 +20,6 @@ function AboutMe() {
           <span className="text-cyan-500 font-bold"> React</span>,
           <span className="text-sky-400 font-bold"> Tailwind CSS</span>,
           <span className="text-violet-600 font-bold"> Bootstrap</span>,
-          <span className="text-slate-600 font-bold"> Next</span>,
           <span className="text-blue-900 font-bold"> Pyt</span>
           <span className="text-yellow-300 font-bold">hon</span> and
           <span className="text-fuchsia-900 font-bold"> Odoo</span> development,
@@ -40,7 +39,6 @@ function AboutMe() {
             <li>UI/UX design and user experience optimization</li>
             <li>Integrating AI into frontend to enhance user interaction</li>
             <li>Self-learning and knowledge sharing</li>
-            <li>Exploring startup ideas for the Sudanese market</li>
           </ul>
         </div>
       </div>
