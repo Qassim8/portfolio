@@ -30,7 +30,7 @@ const ContactForm = () => {
     }
 
     // Phone validation
-    const phoneRegex = /^[\d\s\-\+\(\)]+$/;
+    const phoneRegex = /^[\d\s\-+()]+$/;
     if (!formData.number.trim()) {
       newErrors.number = "Phone number is required";
     } else if (formData.number.trim().length < 10) {
