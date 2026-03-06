@@ -2,9 +2,9 @@ import ProjectCard from "./ProjectCard";
 import SectionHeader from "./SectionHeader";
 import zus from "../images/zus.jpeg";
 import villans from "../images/villans.jpg";
-import onpoint from "../images/onpoints.net.jpeg";
+import niloop from "../images/niloop.png";
 import bareeq from "../images/bareeq.jpeg";
-import doctory from "../images/doctory.jpeg";
+import school from "../images/school.jpeg";
 
 const ProjectSection = () => {
   const projects = [
@@ -23,11 +23,11 @@ const ProjectSection = () => {
       link: "https://villans.vercel.app/villans",
     },
     {
-      title: "Onpoint",
+      title: "Niloop",
       description:
-        "A Saudi-based company website that offers delivery and various tech services. Users can place custom delivery orders, set their own prices, and track the status of their requests.",
-      image: onpoint,
-      link: "https://onpoints.net/",
+        "A website for a technology company that provides IT solutions and services. The site features a modern design with sections for company information, services offered, client testimonials, and a contact form for inquiries.",
+      image: niloop,
+      link: "https://niloop.vercel.app/ar",
     },
     {
       title: "Bareq Alshati",
@@ -37,11 +37,10 @@ const ProjectSection = () => {
       link: "https://bareqrt.com/",
     },
     {
-      title: "Doctory",
+      title: "Al-Fajr Education",
       description:
-        "A hospital web application designed to display key statistics such as patient visits, surgeries, and bookings. It allows administrators to add doctors and patients, schedule appointments, and manage pharmacy items with filtering by department. (Project still under development)",
-      image: doctory,
-      link: "",
+        "School management system that provides a platform for students, teachers, and administrators to manage academic activities, including attendance tracking, grade management, and communication tools. [This project is currently in development and does not have a live link yet]",
+      image: school,
     },
   ];
   return (

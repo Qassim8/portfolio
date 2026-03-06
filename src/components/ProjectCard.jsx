@@ -5,7 +5,7 @@ const ProjectCard = ({ myProject }) => {
         <img
           src={myProject.image}
           alt={myProject.title}
-          className="w-full min-h-full"
+          className="w-full min-h-full object-cover"
           loading="lazy"
         />
       </div>
@@ -18,6 +18,7 @@ const ProjectCard = ({ myProject }) => {
       {myProject.link && (
         <a
           target="_blank"
+          rel="noopener noreferrer"
           href={myProject.link}
           className="block text-center w-full py-2 text-white bg-main rounded-md relative mt-auto"
         >

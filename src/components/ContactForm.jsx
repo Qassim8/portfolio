@@ -3,22 +3,88 @@ import React, { useState } from "react";
 const ContactForm = () => {
   const [success, setSuccess] = useState(false);
   const [load, setLoad] = useState(false);
+  const [errors, setErrors] = useState({});
+  const [formData, setFormData] = useState({
+    name: "",
+    email: "",
+    number: "",
+    message: "",
+  });
+
+  const validateForm = () => {
+    const newErrors = {};
+
+    // Name validation
+    if (!formData.name.trim()) {
+      newErrors.name = "Name is required";
+    } else if (formData.name.trim().length < 2) {
+      newErrors.name = "Name must be at least 2 characters";
+    }
+
+    // Email validation
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    if (!formData.email.trim()) {
+      newErrors.email = "Email is required";
+    } else if (!emailRegex.test(formData.email)) {
+      newErrors.email = "Invalid email format";
+    }
+
+    // Phone validation
+    const phoneRegex = /^[\d\s\-\+\(\)]+$/;
+    if (!formData.number.trim()) {
+      newErrors.number = "Phone number is required";
+    } else if (formData.number.trim().length < 10) {
+      newErrors.number = "Phone number must be at least 10 digits";
+    } else if (!phoneRegex.test(formData.number)) {
+      newErrors.number = "Invalid phone number format";
+    }
+
+    // Message validation
+    if (!formData.message.trim()) {
+      newErrors.message = "Message is required";
+    } else if (formData.message.trim().length < 10) {
+      newErrors.message = "Message must be at least 10 characters";
+    }
+
+    setErrors(newErrors);
+    return Object.keys(newErrors).length === 0;
+  };
+
+  const handleChange = (e) => {
+    const { name, value } = e.target;
+    setFormData((prev) => ({
+      ...prev,
+      [name]: value,
+    }));
+    // Clear error for this field when user starts typing
+    if (errors[name]) {
+      setErrors((prev) => ({
+        ...prev,
+        [name]: "",
+      }));
+    }
+  };
 
   async function handleSubmit(e) {
     e.preventDefault();
 
-    const formData = new FormData(e.target);
+    if (!validateForm()) {
+      return;
+    }
+
+    const form = new FormData(e.target);
     try {
       setLoad(true);
       const response = await fetch(
         "https://formsubmit.co/mohammed___dev@hotmail.com",
         {
           method: "POST",
-          body: formData,
-        }
+          body: form,
+        },
       );
       if (response.status === 200) {
         e.target.reset();
+        setFormData({ name: "", email: "", number: "", message: "" });
         setSuccess(true);
       }
       e.target.reset();
@@ -65,30 +131,69 @@ const ContactForm = () => {
         data-aos="fade-right"
         className="w-full flex flex-col gap-5 md:w-2/3"
       >
-        <input
-          type="text"
-          name="name"
-          className="text-body bg-blue-100/10 w-full border border-blue-300 p-4 rounded-md outline-none"
-          placeholder="Your Name"
-        />
-        <input
-          type="email"
-          name="email"
-          className="text-body bg-blue-100/10 w-full border border-blue-300 p-4 rounded-md outline-none"
-          placeholder="Your Email Address"
-        />
-        <input
-          type="number"
-          name="number"
-          className="text-body bg-blue-100/10 w-full border border-blue-300 p-4 rounded-md outline-none"
-          placeholder="Your Number "
-        />
-        <textarea
-          name="message"
-          id="mesaage"
-          className="w-full h-[250px] text-body bg-blue-100/10 p-4 resize-none border border-blue-300 outline-none rounded-md"
-          placeholder="Send message..."
-        ></textarea>
+        <div>
+          <input
+            type="text"
+            name="name"
+            value={formData.name}
+            onChange={handleChange}
+            className={`text-body bg-blue-100/10 w-full border p-4 rounded-md outline-none transition-colors ${
+              errors.name ? "border-red-500" : "border-blue-300"
+            }`}
+            placeholder="Your Name"
+          />
+          {errors.name && (
+            <p className="text-red-500 text-sm mt-1">{errors.name}</p>
+          )}
+        </div>
+
+        <div>
+          <input
+            type="email"
+            name="email"
+            value={formData.email}
+            onChange={handleChange}
+            className={`text-body bg-blue-100/10 w-full border p-4 rounded-md outline-none transition-colors ${
+              errors.email ? "border-red-500" : "border-blue-300"
+            }`}
+            placeholder="Your Email Address"
+          />
+          {errors.email && (
+            <p className="text-red-500 text-sm mt-1">{errors.email}</p>
+          )}
+        </div>
+
+        <div>
+          <input
+            type="tel"
+            name="number"
+            value={formData.number}
+            onChange={handleChange}
+            className={`text-body bg-blue-100/10 w-full border p-4 rounded-md outline-none transition-colors ${
+              errors.number ? "border-red-500" : "border-blue-300"
+            }`}
+            placeholder="Your Number"
+          />
+          {errors.number && (
+            <p className="text-red-500 text-sm mt-1">{errors.number}</p>
+          )}
+        </div>
+
+        <div>
+          <textarea
+            name="message"
+            id="mesaage"
+            value={formData.message}
+            onChange={handleChange}
+            className={`w-full h-[250px] text-body bg-blue-100/10 p-4 resize-none border outline-none rounded-md transition-colors ${
+              errors.message ? "border-red-500" : "border-blue-300"
+            }`}
+            placeholder="Send message..."
+          ></textarea>
+          {errors.message && (
+            <p className="text-red-500 text-sm mt-1">{errors.message}</p>
+          )}
+        </div>
         {load ? (
           <button
             type="submit"
