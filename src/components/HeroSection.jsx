@@ -5,7 +5,7 @@ const HeroSection = () => {
         data-aos="fade-up"
         className="container relative my-auto flex flex-col md:flex-row items-center gap-20 text-center md:text-start"
       >
-        <div className="text-body text-[20px]">
+        <div className="text-body max-w-2xl">
           Salam(); I'm
           <h2 className="text-main text-[27px] md:text-[35px] font-bold">
             Mohammed Elgasim.
@@ -13,7 +13,7 @@ const HeroSection = () => {
           <p className="text-slate-600 text-[30px] md:text-[40px] font-semibold">
             I design & develop software.
           </p>
-          <p className="text-body text-[12px] md:text-[15px]">
+          <p className="text-body text-xs md:text-base">
             Building modern, scalable web applications with clean, maintainable
             code and meaningful user experiences — transforming ideas into
             reliable digital solutions that make a real impact.
@@ -39,7 +39,7 @@ const HeroSection = () => {
             </a>
           </div>
         </div>
-        <div className="order-first md:order-last w-[250px] md:w-[350px] h-full relative before:absolute before:w-full before:h-full before:top-0 before:left-0 before:border-2 before:border-[#4aacf2] before:rounded-full before:-z-10">
+        <div className="order-first md:order-last w-[250px] md:w-[350px] h-full md:ml-auto relative before:absolute before:w-full before:h-full before:top-0 before:left-0 before:border-2 before:border-[#4aacf2] before:rounded-full before:-z-10">
           <img
             src={require("../images/avatar.png")}
             alt="avatar"

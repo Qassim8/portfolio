@@ -34,8 +34,9 @@ function AboutMe() {
         </p>
         <div className="mt-8">
           <h3 className="text-2xl font-semibold text-main mb-3">Interests</h3>
-          <ul className="list-disc list-inside text-base space-y-2 text-slate-500">
+          <ul className="list-disc list-inside text-base space-y-2 text-slate-600">
             <li>Developing systems using Odoo ERP</li>
+            <li>Cloud Engineering (Linux, CI/CD, Docker, AWS)</li>
             <li>UI/UX design and user experience optimization</li>
             <li>Integrating AI into frontend to enhance user interaction</li>
             <li>Self-learning and knowledge sharing</li>
