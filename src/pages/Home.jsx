@@ -16,11 +16,13 @@ const Home = () => {
   return (
     <>
       <Header />
-      <HeroSection />
-      <AboutMe />
-      <SkillsSection />
-      <ProjectSection />
-      <ContactMe />
+      <main>
+        <HeroSection />
+        <AboutMe />
+        <SkillsSection />
+        <ProjectSection />
+        <ContactMe />
+      </main>
       <Footer />
     </>
   );

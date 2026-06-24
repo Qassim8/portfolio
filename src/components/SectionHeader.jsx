@@ -2,11 +2,34 @@ function SectionHeader({ title, desc }) {
   return (
     <header
       data-aos="fade-down"
-      className="mb-20 w-full md:w-[480px] p-3 relative border-l-4 border-l-[#4aacf2]
-        before:absolute before:-top-0 before:start-0 before:h-1 before:w-[180px] before:bg-[#4aacf2] duration-300 before:duration-500 hover:before:w-full"
+      className="mb-16 text-center md:text-left max-w-2xl"
     >
-      <h2 className="text-[25px] md:text-[50px] text-body">{`<${title} />`}</h2>
-      <p className="text-slate-500">{desc}</p>
+      {/* Small label */}
+
+      <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-blue-100 text-main text-sm font-medium mb-4">
+        <span className="w-2 h-2 rounded-full bg-main animate-pulse"></span>
+        Section
+      </div>
+
+      {/* Main title */}
+
+      <h2 className="text-4xl md:text-6xl font-bold leading-tight text-body">
+        <span className="text-main">{`<`}</span>
+
+        {title}
+
+        <span className="text-main">{` />`}</span>
+      </h2>
+
+      {/* Decorative line */}
+
+      <div className="mt-4 h-1 w-28 rounded-full bg-gradient-to-r from-main to-cyan-400"></div>
+
+      {/* Description */}
+
+      <p className="text-slate-500 text-base md:text-lg leading-8 max-w-xl">
+        {desc}
+      </p>
     </header>
   );
 }

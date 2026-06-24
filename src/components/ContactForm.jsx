@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { IoSend } from "react-icons/io5";
 
 const ContactForm = () => {
   const [success, setSuccess] = useState(false);
@@ -101,115 +102,197 @@ const ContactForm = () => {
     <>
       {success && (
         <div
-          className="fixed top-32 left-1/2 -translate-x-1/2 
-    bg-green-600/90 backdrop-blur-md text-white 
-    py-3 px-6 rounded-xl shadow-xl 
-    flex items-center gap-3 
-    animate-slideDown z-[9999]"
+          className="
+      fixed top-24 left-1/2
+      -translate-x-1/2
+      z-[999]
+      px-6 py-4
+      rounded-2xl
+      bg-white/90
+      backdrop-blur-xl
+      border border-green-200
+      flex items-center gap-3
+      animate-slideDown
+      "
+          style={{
+            boxShadow: "0 10px 40px rgba(16,185,129,.15)",
+          }}
         >
-          <svg
-            className="w-5 h-5 text-white"
-            fill="none"
-            stroke="currentColor"
-            strokeWidth="2"
-            viewBox="0 0 24 24"
-          >
-            <path
-              strokeLinecap="round"
-              strokeLinejoin="round"
-              d="M5 13l4 4L19 7"
-            />
-          </svg>
+          <div className="w-8 h-8 rounded-full bg-green-500 flex items-center justify-center text-white">
+            ✓
+          </div>
 
-          <span className="font-medium">
-            Your message has been sent, Thanks for reaching out
+          <span className="text-slate-700 font-medium">
+            Message sent successfully
           </span>
         </div>
       )}
+
       <form
         onSubmit={handleSubmit}
         data-aos="fade-right"
-        className="w-full flex flex-col gap-5 md:w-2/3"
+        className="
+    relative
+    overflow-hidden
+    w-full
+    md:w-2/3
+    md:p-8
+    p-4
+    rounded-[30px]
+    border
+    border-slate-200
+    bg-white
+    flex
+    flex-col
+    gap-6
+    "
+        style={{
+          boxShadow: "0px 15px 50px rgba(15,23,42,.04)",
+        }}
       >
-        <div>
-          <input
-            type="text"
-            name="name"
-            value={formData.name}
-            onChange={handleChange}
-            className={`text-body bg-blue-100/10 w-full border p-4 rounded-md outline-none transition-colors ${
-              errors.name ? "border-red-500" : "border-blue-300"
-            }`}
-            placeholder="Your Name"
-          />
-          {errors.name && (
-            <p className="text-red-500 text-sm mt-1">{errors.name}</p>
-          )}
-        </div>
+        {/* glow */}
 
-        <div>
-          <input
-            type="email"
-            name="email"
-            value={formData.email}
-            onChange={handleChange}
-            className={`text-body bg-blue-100/10 w-full border p-4 rounded-md outline-none transition-colors ${
-              errors.email ? "border-red-500" : "border-blue-300"
-            }`}
-            placeholder="Your Email Address"
-          />
-          {errors.email && (
-            <p className="text-red-500 text-sm mt-1">{errors.email}</p>
-          )}
-        </div>
+        <div
+          className="
+    absolute
+    top-0
+    right-0
+    w-40
+    h-40
+    rounded-full
+    bg-blue-100/40
+    blur-3xl
+    "
+        />
 
-        <div>
-          <input
-            type="tel"
-            name="number"
-            value={formData.number}
-            onChange={handleChange}
-            className={`text-body bg-blue-100/10 w-full border p-4 rounded-md outline-none transition-colors ${
-              errors.number ? "border-red-500" : "border-blue-300"
-            }`}
-            placeholder="Your Number"
-          />
-          {errors.number && (
-            <p className="text-red-500 text-sm mt-1">{errors.number}</p>
-          )}
-        </div>
+        {[
+          {
+            name: "name",
+            type: "text",
+            placeholder: "Your Name",
+          },
 
-        <div>
+          {
+            name: "email",
+            type: "email",
+            placeholder: "Your Email",
+          },
+
+          {
+            name: "number",
+            type: "tel",
+            placeholder: "Phone Number",
+          },
+        ].map((field) => (
+          <div key={field.name} className="relative z-10">
+            <input
+              type={field.type}
+              name={field.name}
+              value={formData[field.name]}
+              onChange={handleChange}
+              placeholder={field.placeholder}
+              className="
+          w-full
+          md:p-4
+          p-2
+          rounded-2xl
+          bg-slate-50
+          border
+          border-slate-200
+          outline-none
+          transition-all
+          duration-300
+          focus:border-blue-400
+          focus:bg-white
+          "
+            />
+
+            {errors[field.name] && (
+              <p className="mt-2 text-red-500 text-sm">{errors[field.name]}</p>
+            )}
+          </div>
+        ))}
+
+        <div className="relative z-10">
           <textarea
             name="message"
-            id="mesaage"
             value={formData.message}
             onChange={handleChange}
-            className={`w-full h-[250px] text-body bg-blue-100/10 p-4 resize-none border outline-none rounded-md transition-colors ${
-              errors.message ? "border-red-500" : "border-blue-300"
-            }`}
-            placeholder="Send message..."
-          ></textarea>
+            placeholder="Write your message..."
+            className="
+        w-full
+        h-[180px]
+        resize-none
+        p-4
+        rounded-2xl
+        bg-slate-50
+        border
+        border-slate-200
+        outline-none
+        transition-all
+        duration-300
+        focus:border-blue-400
+        focus:bg-white
+        "
+          />
+
           {errors.message && (
-            <p className="text-red-500 text-sm mt-1">{errors.message}</p>
+            <p className="mt-2 text-red-500 text-sm">{errors.message}</p>
           )}
         </div>
-        {load ? (
-          <button
-            type="submit"
-            disabled
-            className="text-white bg-blue-300 py-2 px-6 border border-blue-300 rounded-md"
-          >
-            Sending...
-          </button>
-        ) : (
-          <button
-            type="submit"
-            className="text-main bg-transparent py-2 px-6 border border-blue-400 rounded-md duration-500 hover:!text-white hover:bg-blue-500 "
-          >
-            Send
-          </button>
-        )}
+
+        <button
+          disabled={load}
+          className="
+      relative
+      overflow-hidden
+      md:py-4
+      py-2
+      rounded-2xl
+      bg-main
+      text-white
+      font-medium
+      hover:scale-[1.02]
+      transition-all
+      duration-500
+      disabled:opacity-70
+      "
+          style={{
+            boxShadow: "0px 10px 25px rgba(59,130,246,.25)",
+          }}
+        >
+          {load ? (
+            <div className="flex justify-center items-center gap-3">
+              <div
+                className="
+      w-5
+      h-5
+      border-2
+      border-white/30
+      border-t-white
+      rounded-full
+      animate-spin
+      "
+              />
+
+              <span>Sending...</span>
+            </div>
+          ) : (
+            <div className="flex justify-center items-center gap-2 group">
+              <span>Send Message</span>
+
+              <IoSend
+                className="
+      text-lg
+      transition-all
+      duration-500
+      group-hover:translate-x-1
+      group-hover:-translate-y-1
+      "
+              />
+            </div>
+          )}
+        </button>
       </form>
     </>
   );
