@@ -23,7 +23,7 @@ const ProjectCard = ({ myProject }) => {
     >
       {/* Image */}
 
-      <div className="relative overflow-hidden h-[240px] md:h-[300px]">
+      <div className="relative overflow-hidden h-[240px] md:h-[350px]">
         <img
           src={myProject.image}
           alt={myProject.title}
@@ -32,7 +32,6 @@ const ProjectCard = ({ myProject }) => {
       w-full
       h-full
       object-cover
-      object-top
       transition-transform
       duration-700
       group-hover:scale-110

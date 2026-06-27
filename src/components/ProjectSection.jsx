@@ -19,10 +19,10 @@ const ProjectSection = () => {
       link: "https://sudatech-shop.vercel.app/",
     },
     {
-      title: "Ebdaa Besoal",
+      title: "Ebdaa Besoual",
       description:
         "An educational initiative designed to help students and fresh graduates better understand career paths and market requirements. The platform provides guidance on job opportunities, training programs, scholarships, and learning resources to support career development and growth.",
-      image: "",
+      image: "/images/swq.png",
       link: "https://ebda-baswal-edu.vercel.app",
     },
     {

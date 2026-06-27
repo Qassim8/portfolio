@@ -7,7 +7,7 @@ const ContactMe = () => {
     <section id="contact" className="py-16 container mx-auto">
       <SectionHeader
         title="ContactMe"
-        desc="if you want my services just contact me in what you want"
+        desc="if you want my services just contact me"
       />
       <div className="container flex flex-col md:flex-row items-center gap-20">
         <ContactForm />

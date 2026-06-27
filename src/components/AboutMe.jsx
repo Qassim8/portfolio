@@ -22,7 +22,7 @@ function AboutMe() {
         <div className="grid lg:grid-cols-2 gap-12">
           {/* About Text */}
 
-          <div data-aos="fade-right">
+          <div data-aos="fade-top">
             <h3 className="text-3xl font-bold text-body mb-6">
               Building modern web experiences with purpose.
             </h3>
@@ -70,7 +70,7 @@ function AboutMe() {
           {/* Interests */}
 
           <div
-            data-aos="fade-left"
+            data-aos="fade-top"
             className="
   relative
   overflow-hidden
@@ -114,7 +114,8 @@ function AboutMe() {
         group
         relative
         overflow-hidden
-        p-5
+        md:p-5
+        p-2
         rounded-2xl
         border
         border-slate-100

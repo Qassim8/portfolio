@@ -58,8 +58,8 @@ const HeroSection = () => {
 
           <div className="flex justify-center md:justify-start gap-5 mt-10">
             <a
-              download
-              href="https://drive.google.com/uc?export=download&id=1EapSQfKYV13Mi-kbN9lqdwA7GUxw0YkH"
+              download="Mohammed_Algasim_Software_Developer_CV.pdf"
+              href="/cv.pdf"
               className="flex items-center gap-3 px-3 md:px-7 py-2 md:py-4 bg-main text-white rounded-lg md:rounded-2xl shadow-lg hover:scale-105 hover:shadow-xl duration-300"
             >
               <BsDownload />
