@@ -82,7 +82,7 @@ const ProjectCard = ({ myProject }) => {
 
       {/* Content */}
 
-      <div className="flex flex-col flex-grow p-6">
+      <div className="flex flex-col flex-grow p-4 md:p-6">
         <p
           className="
       text-slate-600
@@ -108,7 +108,8 @@ const ProjectCard = ({ myProject }) => {
         items-center
         justify-center
         gap-2
-        py-3
+        py-2
+        md:py-3
         rounded-2xl
         bg-main
         text-white

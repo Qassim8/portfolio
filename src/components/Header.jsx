@@ -26,7 +26,7 @@ const Header = () => {
   }, []);
 
   return (
-    <header className="fixed top-0 w-full z-50 px-4 py-4">
+    <header className="fixed top-0 w-full z-50 px-2 md:px-4 py-4">
       <nav
         className={`container mx-auto 
         rounded-2xl
@@ -38,7 +38,7 @@ const Header = () => {
         }
         `}
       >
-        <div className="flex justify-between items-center px-6 py-4">
+        <div className="flex justify-between items-center px-1 md:px-6 py-4">
           {/* Logo */}
 
           <a href="#home" className="text-2xl font-bold text-main">
@@ -117,7 +117,7 @@ const Header = () => {
           ${show ? "max-h-[400px] opacity-100" : "max-h-0 opacity-0"}
           `}
         >
-          <ul className="px-6 pb-6 flex flex-col gap-2">
+          <ul className="px-1 md:px-6 pb-6 flex flex-col gap-2">
             {navItems.map((item) => (
               <li key={item.name}>
                 <a
@@ -146,7 +146,8 @@ const Header = () => {
               items-center
               gap-2
               text-center
-              py-3
+              py-2
+              md:py-3
               rounded-xl
               bg-main
               text-white

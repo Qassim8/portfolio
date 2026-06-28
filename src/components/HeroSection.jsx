@@ -28,11 +28,11 @@ const HeroSection = () => {
             Salam, I'm <span className="text-main block">Mohammed Qassim</span>
           </h1>
 
-          <h2 className="mt-3 text-2xl md:text-4xl font-semibold text-slate-600">
+          <h2 className="mt-2 text-2xl md:text-4xl font-semibold text-slate-600">
             Building scalable web experiences.
           </h2>
 
-          <p className="mt-6 text-slate-500 leading-8 text-base md:text-lg">
+          <p className="mt-6 text-slate-500 leading-6 text-base md:text-lg">
             I build modern and high-performance web applications using React.js,
             Next.js and modern frontend technologies with a strong focus on
             clean architecture, reusable components, and meaningful user

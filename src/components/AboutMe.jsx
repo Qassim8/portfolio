@@ -27,7 +27,7 @@ function AboutMe() {
               Building modern web experiences with purpose.
             </h3>
 
-            <p className="text-slate-600 leading-8 mb-5">
+            <p className="text-slate-600 leading-6">
               I'm{" "}
               <span className="font-semibold text-main">Mohammed Qassim</span>,
               a Frontend Developer focused on creating modern, scalable, and
@@ -35,13 +35,13 @@ function AboutMe() {
               user-centered design.
             </p>
 
-            <p className="text-slate-600 leading-8 mb-5">
+            <p className="text-slate-600 leading-6 my-3">
               I enjoy transforming ideas into meaningful digital experiences
               while maintaining performance, maintainability, and attention to
               detail.
             </p>
 
-            <p className="text-slate-600 leading-8">
+            <p className="text-slate-600 leading-6">
               My goal is not only to write code, but also to solve real-world
               problems and build products that create value and improve user
               experiences.
@@ -76,7 +76,8 @@ function AboutMe() {
   overflow-hidden
   rounded-[30px]
   bg-white
-  p-8
+  p-4
+  md:p-8
   border
   border-slate-200
   "
@@ -152,6 +153,8 @@ function AboutMe() {
                     <span
                       className="
             text-slate-700
+            text-xs
+            md:text-base
             font-medium
             group-hover:text-main
             transition-colors
