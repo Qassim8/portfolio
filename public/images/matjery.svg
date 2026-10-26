@@ -1,0 +1,87 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 800" width="1200" height="800" role="img" aria-label="Matjery ERP dashboard illustration">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#1b1a22"/>
+      <stop offset="1" stop-color="#0d0d12"/>
+    </linearGradient>
+    <linearGradient id="gold" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#e6c88c"/>
+      <stop offset="1" stop-color="#d6b370"/>
+    </linearGradient>
+    <linearGradient id="area" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#d6b370" stop-opacity="0.45"/>
+      <stop offset="1" stop-color="#d6b370" stop-opacity="0"/>
+    </linearGradient>
+  </defs>
+
+  <rect width="1200" height="800" fill="url(#bg)"/>
+
+  <!-- window -->
+  <rect x="70" y="70" width="1060" height="660" rx="26" fill="#14141b" stroke="#2c2b36" stroke-width="2"/>
+  <circle cx="108" cy="104" r="7" fill="#ef4444"/>
+  <circle cx="132" cy="104" r="7" fill="#f59e0b"/>
+  <circle cx="156" cy="104" r="7" fill="#22c55e"/>
+
+  <!-- sidebar (right side, RTL app) -->
+  <rect x="900" y="132" width="200" height="570" rx="18" fill="#1a1a23"/>
+  <rect x="920" y="152" width="40" height="40" rx="12" fill="url(#gold)"/>
+  <rect x="972" y="164" width="96" height="16" rx="8" fill="#3a3945"/>
+  <rect x="920" y="222" width="160" height="38" rx="12" fill="#d6b370" fill-opacity="0.18"/>
+  <rect x="936" y="236" width="90" height="10" rx="5" fill="#d6b370"/>
+  <g fill="#3a3945">
+    <rect x="936" y="290" width="110" height="10" rx="5"/>
+    <rect x="936" y="334" width="80" height="10" rx="5"/>
+    <rect x="936" y="378" width="120" height="10" rx="5"/>
+    <rect x="936" y="422" width="94" height="10" rx="5"/>
+    <rect x="936" y="466" width="108" height="10" rx="5"/>
+    <rect x="936" y="510" width="84" height="10" rx="5"/>
+    <rect x="936" y="554" width="116" height="10" rx="5"/>
+  </g>
+
+  <!-- KPI cards -->
+  <g>
+    <rect x="110" y="140" width="228" height="120" rx="18" fill="#1a1a23" stroke="#2c2b36"/>
+    <rect x="130" y="160" width="80" height="10" rx="5" fill="#3a3945"/>
+    <text x="130" y="224" font-family="Arial, Helvetica, sans-serif" font-size="40" font-weight="700" fill="#f4e7c8">$12,480</text>
+
+    <rect x="354" y="140" width="228" height="120" rx="18" fill="#1a1a23" stroke="#2c2b36"/>
+    <rect x="374" y="160" width="80" height="10" rx="5" fill="#3a3945"/>
+    <text x="374" y="224" font-family="Arial, Helvetica, sans-serif" font-size="40" font-weight="700" fill="#f4e7c8">248</text>
+
+    <rect x="598" y="140" width="272" height="120" rx="18" fill="#d6b370" fill-opacity="0.14" stroke="#d6b370" stroke-opacity="0.5"/>
+    <rect x="618" y="160" width="80" height="10" rx="5" fill="#d6b370" fill-opacity="0.7"/>
+    <text x="618" y="224" font-family="Arial, Helvetica, sans-serif" font-size="40" font-weight="700" fill="#e6c88c">+32%</text>
+  </g>
+
+  <!-- chart -->
+  <rect x="110" y="284" width="520" height="418" rx="18" fill="#1a1a23" stroke="#2c2b36"/>
+  <rect x="134" y="308" width="120" height="12" rx="6" fill="#3a3945"/>
+  <g stroke="#2c2b36" stroke-width="1.5">
+    <line x1="134" y1="400" x2="606" y2="400"/>
+    <line x1="134" y1="470" x2="606" y2="470"/>
+    <line x1="134" y1="540" x2="606" y2="540"/>
+    <line x1="134" y1="610" x2="606" y2="610"/>
+  </g>
+  <path d="M134 600 C 190 570, 220 530, 270 540 S 350 470, 400 452 S 500 420, 540 380 S 590 360, 606 350 L606 650 L134 650 Z" fill="url(#area)"/>
+  <path d="M134 600 C 190 570, 220 530, 270 540 S 350 470, 400 452 S 500 420, 540 380 S 590 360, 606 350" fill="none" stroke="url(#gold)" stroke-width="5" stroke-linecap="round"/>
+  <circle cx="540" cy="380" r="9" fill="#14141b" stroke="#e6c88c" stroke-width="4"/>
+
+  <!-- bar chart -->
+  <rect x="650" y="284" width="220" height="418" rx="18" fill="#1a1a23" stroke="#2c2b36"/>
+  <rect x="674" y="308" width="90" height="12" rx="6" fill="#3a3945"/>
+  <g fill="url(#gold)">
+    <rect x="680" y="520" width="26" height="130" rx="8"/>
+    <rect x="720" y="470" width="26" height="180" rx="8"/>
+    <rect x="760" y="560" width="26" height="90" rx="8"/>
+    <rect x="800" y="420" width="26" height="230" rx="8"/>
+  </g>
+
+  <!-- tailoring / orders list -->
+  <g fill="#3a3945">
+    <rect x="674" y="350" width="170" height="10" rx="5" opacity="0.6"/>
+    <rect x="674" y="372" width="120" height="10" rx="5" opacity="0.6"/>
+  </g>
+
+  <!-- decorative thread -->
+  <path d="M1000 40 C 1060 10, 1130 60, 1170 30" fill="none" stroke="#d6b370" stroke-opacity="0.5" stroke-width="3" stroke-dasharray="2 10" stroke-linecap="round"/>
+</svg>

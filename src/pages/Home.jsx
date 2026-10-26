@@ -10,9 +10,15 @@ import { useEffect } from "react";
 const Home = () => {
   useEffect(() => {
     if (window.AOS) {
-      window.AOS.init({ duration: 2000, once: true });
+      window.AOS.init({
+        duration: 800,
+        once: true,
+        disable: () =>
+          window.matchMedia("(prefers-reduced-motion: reduce)").matches,
+      });
     }
   }, []);
+
   return (
     <>
       <Header />
@@ -27,4 +33,5 @@ const Home = () => {
     </>
   );
 };
+
 export default Home;

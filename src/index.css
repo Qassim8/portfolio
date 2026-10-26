@@ -2,39 +2,89 @@
 @tailwind components;
 @tailwind utilities;
 
-html,
-body {
-  /* background-color: rgb(37, 37, 75); */
-  font-family: "Nunito", serif;
+/* ---------------------------------------------------------------
+   Theme tokens (space separated RGB so Tailwind opacity works)
+   --------------------------------------------------------------- */
+:root {
+  --canvas: 255 255 255;
+  --alt: 248 250 252;
+  --card: 255 255 255;
+  --inset: 241 245 249;
+  --line: 226 232 240;
+  --ink: 37 37 75;
+  --copy: 71 85 105;
+  --muted: 100 116 139;
+  --main: 26 122 194; /* text / icons on canvas */
+  --brand: 26 122 194; /* solid button background (white text) */
+  color-scheme: light;
+}
+
+.dark {
+  --canvas: 2 6 23;
+  --alt: 8 14 30;
+  --card: 15 23 42;
+  --inset: 30 41 59;
+  --line: 51 65 85;
+  --ink: 241 245 249;
+  --copy: 203 213 225;
+  --muted: 148 163 184;
+  --main: 96 181 245;
+  --brand: 30 120 190;
+  color-scheme: dark;
+}
+
+html {
   scroll-behavior: smooth;
 }
-.active {
-  /* background-color: rgb(37, 37, 75); */
-  background-color: white;
-  color: rgb(37, 37, 75) !important;
+
+html[lang="ar"] body {
+  font-family: "IBM Plex Sans Arabic", "Segoe UI", Tahoma, sans-serif;
+  /* Relaxed line height keeps long Arabic paragraphs easy on the eye. */
+  letter-spacing: 0;
+  line-height: 1.75;
 }
-.text-body {
-  color: rgb(37, 37, 75) !important;
+
+html[lang="ar"] h1,
+html[lang="ar"] h2,
+html[lang="ar"] h3 {
+  line-height: 1.45;
 }
-.bg-body {
-  background-color: rgb(37, 37, 75) !important;
+
+html[lang="en"] body {
+  font-family: "Nunito", "Segoe UI", sans-serif;
 }
-li a:hover {
-  background-color: white;
-  color: rgb(37, 37, 75);
+
+body {
+  @apply bg-canvas text-copy antialiased;
+  transition:
+    background-color 0.3s ease,
+    color 0.3s ease;
 }
-.bg-main {
-  background-color: #4aacf2;
+
+section[id] {
+  scroll-margin-top: 90px;
 }
-.text-main {
-  color: #4aacf2 !important;
+
+:focus-visible {
+  outline: 2px solid rgb(var(--main));
+  outline-offset: 3px;
 }
-.bg-alt {
-  background-color: #87c6f3;
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    transition-duration: 0.01ms !important;
+  }
 }
+
 /*  --------------
     page container
     -------------- */
 .container {
-  @apply px-3 md:px-0 mx-auto;
+  @apply px-4 md:px-6 mx-auto;
 }

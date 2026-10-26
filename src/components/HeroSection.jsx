@@ -1,99 +1,100 @@
 import { BsDownload, BsGithub } from "react-icons/bs";
+import { useI18n } from "../i18n/I18nProvider";
+import { profile } from "../data/profile";
+
+const techStack = ["React", "Next.js", "TypeScript", "Python", "Odoo", "ERP Systems"];
 
 const HeroSection = () => {
+  const { t } = useI18n();
+
   return (
     <section
       id="home"
-      className="min-h-screen flex items-center overflow-hidden relative"
+      className="min-h-screen flex items-center overflow-hidden relative pt-28 pb-16"
     >
       {/* Background */}
-      <div className="absolute inset-0 -z-20 bg-gradient-to-br from-slate-50 via-white to-blue-50" />
+      <div className="absolute inset-0 -z-20 bg-gradient-to-br from-alt via-canvas to-main/10" />
 
       {/* Blur Effects */}
-      <div className="absolute top-20 left-10 w-72 h-72 bg-blue-300/20 blur-[100px] rounded-full -z-10"></div>
-
-      <div className="absolute bottom-20 right-10 w-80 h-80 bg-cyan-300/20 blur-[120px] rounded-full -z-10"></div>
+      <div className="absolute top-20 start-10 w-72 h-72 bg-main/15 blur-[100px] rounded-full -z-10"></div>
+      <div className="absolute bottom-20 end-10 w-80 h-80 bg-cyan-400/15 blur-[120px] rounded-full -z-10"></div>
 
       <div
         data-aos="fade-up"
         className="container mx-auto flex flex-col-reverse md:flex-row items-center justify-between gap-16"
       >
-        {/* Left Content */}
-        <div className="max-w-2xl text-center md:text-left">
-          <span className="px-4 py-2 rounded-full bg-blue-100 text-main text-sm font-medium">
-            Software Developer • React • Next.js
+        {/* Text */}
+        <div className="max-w-2xl text-center md:text-start">
+          <span className="inline-block px-4 py-2 rounded-full bg-main/10 text-main text-sm font-medium">
+            {t("hero.badge")}
           </span>
 
-          <h1 className="mt-6 text-4xl md:text-6xl font-bold leading-tight text-body">
-            Salam, I'm <span className="text-main block">Mohammed Qassim</span>
+          <h1 className="mt-6 text-4xl md:text-6xl font-bold leading-tight text-ink">
+            {t("hero.hello")}{" "}
+            <span className="text-main block">{t("hero.name")}</span>
           </h1>
 
-          <h2 className="mt-2 text-2xl md:text-4xl font-semibold text-slate-600">
-            Building scalable web experiences.
+          <h2 className="mt-3 text-2xl md:text-4xl font-semibold text-copy">
+            {t("hero.tagline")}
           </h2>
 
-          <p className="mt-6 text-slate-500 leading-6 text-base md:text-lg">
-            I build modern and high-performance web applications using React.js,
-            Next.js and modern frontend technologies with a strong focus on
-            clean architecture, reusable components, and meaningful user
-            experiences.
+          <p className="mt-6 text-muted leading-7 text-base md:text-lg">
+            {t("hero.description")}
           </p>
 
           {/* Tech stack */}
 
           <div className="flex flex-wrap justify-center md:justify-start gap-3 mt-8">
-            {["React", "Next.js", "Tailwind", "TypeScript", "Node Basics"].map(
-              (tech) => (
-                <span
-                  key={tech}
-                  className="px-4 py-2 bg-white border border-slate-200 rounded-full shadow-sm text-sm text-slate-700 hover:-translate-y-1 duration-300"
-                >
-                  {tech}
-                </span>
-              ),
-            )}
+            {techStack.map((tech) => (
+              <span
+                key={tech}
+                dir="ltr"
+                className="px-4 py-2 bg-card border border-line rounded-full shadow-sm text-sm text-copy hover:-translate-y-1 duration-300"
+              >
+                {tech}
+              </span>
+            ))}
           </div>
 
           {/* Buttons */}
 
-          <div className="flex justify-center md:justify-start gap-5 mt-10">
+          <div className="flex flex-wrap justify-center md:justify-start gap-4 mt-10">
             <a
-              download="Mohammed_Algasim_Software_Developer_CV.pdf"
-              href="/cv.pdf"
-              className="flex items-center gap-3 px-3 md:px-7 py-2 md:py-4 bg-main text-white rounded-lg md:rounded-2xl shadow-lg hover:scale-105 hover:shadow-xl duration-300"
+              download={profile.cvFileName}
+              href={profile.cv}
+              className="flex items-center gap-3 px-5 md:px-7 py-3 md:py-4 bg-brand text-white rounded-xl md:rounded-2xl shadow-lg hover:scale-105 hover:shadow-xl duration-300"
             >
               <BsDownload />
-              Download CV
+              {t("hero.cv")}
             </a>
 
             <a
               target="_blank"
               rel="noreferrer"
-              href="https://github.com/Qassim8"
-              className="flex items-center gap-3 px-3 md:px-7 py-2 md:py-4 rounded-lg md:rounded-2xl border border-slate-300 bg-white hover:bg-slate-50 hover:scale-105 duration-300"
+              href={profile.github}
+              className="flex items-center gap-3 px-5 md:px-7 py-3 md:py-4 rounded-xl md:rounded-2xl border border-line bg-card text-ink hover:border-main hover:scale-105 duration-300"
             >
               <BsGithub />
-              Github
+              {t("hero.github")}
             </a>
           </div>
         </div>
 
-        {/* Right Image */}
+        {/* Image */}
 
         <div className="relative">
-          {/* Decorative circles */}
+          <div className="absolute inset-0 scale-125 rounded-full bg-gradient-to-r from-main/20 to-cyan-300/20 blur-3xl"></div>
 
-          <div className="absolute inset-0 scale-125 rounded-full bg-gradient-to-r from-blue-400/20 to-cyan-300/20 blur-3xl"></div>
-
-          <div className="relative w-[280px] md:w-[420px] aspect-square">
-            <div className="absolute inset-0 rounded-full border border-blue-300 animate-pulse"></div>
-
-            <div className="absolute inset-4 rounded-full border border-cyan-300"></div>
+          <div className="relative w-[260px] md:w-[400px] aspect-square">
+            <div className="absolute inset-0 rounded-full border border-main/50 animate-pulse"></div>
+            <div className="absolute inset-4 rounded-full border border-cyan-300/60"></div>
 
             <div className="overflow-hidden rounded-full backdrop-blur-lg bg-white/20 border border-white/30 shadow-2xl">
               <img
                 src="/images/avatar.png"
-                alt="avatar"
+                alt={t("hero.avatarAlt")}
+                width="420"
+                height="420"
                 className="w-full h-full object-cover hover:scale-105 duration-500"
               />
             </div>

@@ -1,51 +1,51 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { IoSend } from "react-icons/io5";
+import { useI18n } from "../i18n/I18nProvider";
+import { profile } from "../data/profile";
+
+const EMAIL_REGEX = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+const PHONE_REGEX = /^[\d\s\-+()]+$/;
+
+const emptyForm = { name: "", email: "", number: "", message: "" };
+
+const fieldClass =
+  "w-full md:p-4 p-3 rounded-2xl bg-inset/60 border border-line text-ink placeholder:text-muted outline-none transition-all duration-300 focus:border-main focus:bg-card";
 
 const ContactForm = () => {
+  const { t } = useI18n();
   const [success, setSuccess] = useState(false);
+  const [failed, setFailed] = useState(false);
   const [load, setLoad] = useState(false);
   const [errors, setErrors] = useState({});
-  const [formData, setFormData] = useState({
-    name: "",
-    email: "",
-    number: "",
-    message: "",
-  });
+  const [formData, setFormData] = useState(emptyForm);
 
+  // Hide the success toast after a few seconds.
+  useEffect(() => {
+    if (!success) return undefined;
+    const timer = setTimeout(() => setSuccess(false), 8000);
+    return () => clearTimeout(timer);
+  }, [success]);
+
+  // Errors are stored as translation keys so they follow the active language.
   const validateForm = () => {
     const newErrors = {};
+    const name = formData.name.trim();
+    const email = formData.email.trim();
+    const number = formData.number.trim();
+    const message = formData.message.trim();
 
-    // Name validation
-    if (!formData.name.trim()) {
-      newErrors.name = "Name is required";
-    } else if (formData.name.trim().length < 2) {
-      newErrors.name = "Name must be at least 2 characters";
-    }
+    if (!name) newErrors.name = "nameRequired";
+    else if (name.length < 2) newErrors.name = "nameShort";
 
-    // Email validation
-    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-    if (!formData.email.trim()) {
-      newErrors.email = "Email is required";
-    } else if (!emailRegex.test(formData.email)) {
-      newErrors.email = "Invalid email format";
-    }
+    if (!email) newErrors.email = "emailRequired";
+    else if (!EMAIL_REGEX.test(email)) newErrors.email = "emailInvalid";
 
-    // Phone validation
-    const phoneRegex = /^[\d\s\-+()]+$/;
-    if (!formData.number.trim()) {
-      newErrors.number = "Phone number is required";
-    } else if (formData.number.trim().length < 10) {
-      newErrors.number = "Phone number must be at least 10 digits";
-    } else if (!phoneRegex.test(formData.number)) {
-      newErrors.number = "Invalid phone number format";
-    }
+    if (!number) newErrors.number = "numberRequired";
+    else if (number.length < 10) newErrors.number = "numberShort";
+    else if (!PHONE_REGEX.test(number)) newErrors.number = "numberInvalid";
 
-    // Message validation
-    if (!formData.message.trim()) {
-      newErrors.message = "Message is required";
-    } else if (formData.message.trim().length < 10) {
-      newErrors.message = "Message must be at least 10 characters";
-    }
+    if (!message) newErrors.message = "messageRequired";
+    else if (message.length < 10) newErrors.message = "messageShort";
 
     setErrors(newErrors);
     return Object.keys(newErrors).length === 0;
@@ -53,162 +53,81 @@ const ContactForm = () => {
 
   const handleChange = (e) => {
     const { name, value } = e.target;
-    setFormData((prev) => ({
-      ...prev,
-      [name]: value,
-    }));
-    // Clear error for this field when user starts typing
-    if (errors[name]) {
-      setErrors((prev) => ({
-        ...prev,
-        [name]: "",
-      }));
-    }
+    setFormData((prev) => ({ ...prev, [name]: value }));
+    if (errors[name]) setErrors((prev) => ({ ...prev, [name]: "" }));
   };
 
   async function handleSubmit(e) {
     e.preventDefault();
-
-    if (!validateForm()) {
-      return;
-    }
+    if (!validateForm()) return;
 
     const form = new FormData(e.target);
+    setFailed(false);
     try {
       setLoad(true);
       const response = await fetch(
-        "https://formsubmit.co/mohammed___dev@hotmail.com",
-        {
-          method: "POST",
-          body: form,
-        },
+        `https://formsubmit.co/${profile.email}`,
+        { method: "POST", body: form },
       );
-      if (response.status === 200) {
-        e.target.reset();
-        setFormData({ name: "", email: "", number: "", message: "" });
+      if (response.ok) {
+        setFormData(emptyForm);
         setSuccess(true);
+      } else {
+        setFailed(true);
       }
-      e.target.reset();
-    } catch (er) {
-      setSuccess(false);
-      console.log(er.message);
+    } catch {
+      setFailed(true);
     } finally {
       setLoad(false);
     }
   }
 
-  setTimeout(() => setSuccess(false), 8000);
+  const fields = [
+    { name: "name", type: "text", autoComplete: "name" },
+    { name: "email", type: "email", autoComplete: "email", ltr: true },
+    { name: "number", type: "tel", autoComplete: "tel", ltr: true },
+  ];
+
   return (
     <>
       {success && (
         <div
-          className="
-      fixed top-24 left-1/2
-      -translate-x-1/2
-      z-[999]
-      px-6 py-4
-      rounded-2xl
-      bg-white/90
-      backdrop-blur-xl
-      border border-green-200
-      flex items-center gap-3
-      animate-slideDown
-      "
-          style={{
-            boxShadow: "0 10px 40px rgba(16,185,129,.15)",
-          }}
+          role="status"
+          className="fixed top-24 left-1/2 -translate-x-1/2 z-[999] px-6 py-4 rounded-2xl bg-card/95 backdrop-blur-xl border border-green-300 flex items-center gap-3 animate-slideDown shadow-[0_10px_40px_rgba(16,185,129,.2)]"
         >
           <div className="w-8 h-8 rounded-full bg-green-500 flex items-center justify-center text-white">
             ✓
           </div>
-
-          <span className="text-slate-700 font-medium">
-            Message sent successfully
-          </span>
+          <span className="text-ink font-medium">{t("form.success")}</span>
         </div>
       )}
 
       <form
         onSubmit={handleSubmit}
-        data-aos="fade-right"
-        className="
-    relative
-    overflow-hidden
-    w-full
-    md:w-2/3
-    md:p-8
-    p-4
-    rounded-[30px]
-    border
-    border-slate-200
-    bg-white
-    flex
-    flex-col
-    gap-6
-    "
-        style={{
-          boxShadow: "0px 15px 50px rgba(15,23,42,.04)",
-        }}
+        noValidate
+        data-aos="fade-up"
+        className="relative overflow-hidden w-full md:w-2/3 md:p-8 p-4 rounded-[30px] border border-line bg-card flex flex-col gap-6 shadow-[0_15px_50px_rgba(15,23,42,.05)]"
       >
-        {/* glow */}
+        <div className="absolute top-0 end-0 w-40 h-40 rounded-full bg-main/10 blur-3xl" />
 
-        <div
-          className="
-    absolute
-    top-0
-    right-0
-    w-40
-    h-40
-    rounded-full
-    bg-blue-100/40
-    blur-3xl
-    "
-        />
-
-        {[
-          {
-            name: "name",
-            type: "text",
-            placeholder: "Your Name",
-          },
-
-          {
-            name: "email",
-            type: "email",
-            placeholder: "Your Email",
-          },
-
-          {
-            name: "number",
-            type: "tel",
-            placeholder: "Phone Number",
-          },
-        ].map((field) => (
+        {fields.map((field) => (
           <div key={field.name} className="relative z-10">
             <input
               type={field.type}
               name={field.name}
               value={formData[field.name]}
               onChange={handleChange}
-              placeholder={field.placeholder}
-              className="
-          w-full
-          md:p-4
-          p-2
-          rounded-2xl
-          bg-slate-50
-          border
-          border-slate-200
-          outline-none
-          transition-all
-          duration-300
-          focus:border-blue-400
-          focus:bg-white
-          "
+              placeholder={t(`form.${field.name}`)}
+              aria-label={t(`form.${field.name}`)}
+              aria-invalid={errors[field.name] ? "true" : undefined}
+              autoComplete={field.autoComplete}
+              dir={field.ltr ? "auto" : undefined}
+              className={fieldClass}
             />
-
             {errors[field.name] && (
-              <p className="mt-2 text-red-500 text-sm">{errors[field.name]}</p>
+              <p className="mt-2 text-red-500 text-sm">
+                {t(`form.errors.${errors[field.name]}`)}
+              </p>
             )}
           </div>
         ))}
@@ -218,78 +137,38 @@ const ContactForm = () => {
             name="message"
             value={formData.message}
             onChange={handleChange}
-            placeholder="Write your message..."
-            className="
-        w-full
-        h-[180px]
-        resize-none
-        p-4
-        rounded-2xl
-        bg-slate-50
-        border
-        border-slate-200
-        outline-none
-        transition-all
-        duration-300
-        focus:border-blue-400
-        focus:bg-white
-        "
+            placeholder={t("form.message")}
+            aria-label={t("form.message")}
+            aria-invalid={errors.message ? "true" : undefined}
+            className={`${fieldClass} h-[180px] resize-none`}
           />
-
           {errors.message && (
-            <p className="mt-2 text-red-500 text-sm">{errors.message}</p>
+            <p className="mt-2 text-red-500 text-sm">
+              {t(`form.errors.${errors.message}`)}
+            </p>
           )}
         </div>
 
+        {failed && (
+          <p role="alert" className="relative z-10 text-red-500 text-sm">
+            {t("form.failure")}
+          </p>
+        )}
+
         <button
+          type="submit"
           disabled={load}
-          className="
-      relative
-      overflow-hidden
-      md:py-4
-      py-2
-      rounded-2xl
-      bg-main
-      text-white
-      font-medium
-      hover:scale-[1.02]
-      transition-all
-      duration-500
-      disabled:opacity-70
-      "
-          style={{
-            boxShadow: "0px 10px 25px rgba(59,130,246,.25)",
-          }}
+          className="relative overflow-hidden md:py-4 py-3 rounded-2xl bg-brand text-white font-medium hover:scale-[1.02] transition-all duration-500 disabled:opacity-70 shadow-[0_10px_25px_rgba(26,122,194,.25)]"
         >
           {load ? (
             <div className="flex justify-center items-center gap-3">
-              <div
-                className="
-      w-5
-      h-5
-      border-2
-      border-white/30
-      border-t-white
-      rounded-full
-      animate-spin
-      "
-              />
-
-              <span>Sending...</span>
+              <div className="w-5 h-5 border-2 border-white/30 border-t-white rounded-full animate-spin" />
+              <span>{t("form.sending")}</span>
             </div>
           ) : (
             <div className="flex justify-center items-center gap-2 group">
-              <span>Send Message</span>
-
-              <IoSend
-                className="
-      text-lg
-      transition-all
-      duration-500
-      group-hover:translate-x-1
-      group-hover:-translate-y-1
-      "
-              />
+              <span>{t("form.send")}</span>
+              <IoSend className="text-lg rtl:-scale-x-100" />
             </div>
           )}
         </button>

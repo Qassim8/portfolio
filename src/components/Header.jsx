@@ -1,47 +1,65 @@
 import { useEffect, useState } from "react";
 import { BsList, BsX } from "react-icons/bs";
 import { IoBriefcase } from "react-icons/io5";
+import { useI18n } from "../i18n/I18nProvider";
+import Toggles from "./Toggles";
+
+const sections = ["home", "about", "skills", "projects", "contact"];
 
 const Header = () => {
+  const { t } = useI18n();
   const [show, setShow] = useState(false);
   const [scrolled, setScrolled] = useState(false);
+  const [active, setActive] = useState("home");
 
-  const navItems = [
-    { name: "Home", link: "#home" },
-    { name: "About", link: "#about" },
-    { name: "Projects", link: "#projects" },
-    { name: "Contact", link: "#contact" },
-  ];
+  const navItems = sections.map((id) => ({
+    id,
+    name: t(`nav.${id}`),
+    link: `#${id}`,
+  }));
 
   useEffect(() => {
-    const handleScroll = () => {
-      setScrolled(window.scrollY > 30);
-    };
+    const handleScroll = () => setScrolled(window.scrollY > 30);
+    handleScroll();
+    window.addEventListener("scroll", handleScroll, { passive: true });
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
 
-    window.addEventListener("scroll", handleScroll);
-
-    return () => {
-      window.removeEventListener("scroll", handleScroll);
-    };
+  // Highlight the nav link of the section currently in view.
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) setActive(entry.target.id);
+        });
+      },
+      { rootMargin: "-45% 0px -50% 0px" },
+    );
+    sections.forEach((id) => {
+      const el = document.getElementById(id);
+      if (el) observer.observe(el);
+    });
+    return () => observer.disconnect();
   }, []);
 
   return (
     <header className="fixed top-0 w-full z-50 px-2 md:px-4 py-4">
       <nav
-        className={`container mx-auto 
-        rounded-2xl
-        transition-all duration-500
-        ${
+        className={`container mx-auto rounded-2xl transition-all duration-500 ${
           scrolled
-            ? "bg-white/70 backdrop-blur-xl shadow-lg border border-white/20"
-            : "bg-transparent"
-        }
-        `}
+            ? "bg-canvas/75 backdrop-blur-xl shadow-lg border border-line"
+            : "bg-transparent border border-transparent"
+        }`}
       >
-        <div className="flex justify-between items-center px-1 md:px-6 py-4">
+        <div className="flex justify-between items-center px-1 md:px-4 py-3">
           {/* Logo */}
 
-          <a href="#home" className="text-2xl font-bold text-main">
+          <a
+            href="#home"
+            dir="ltr"
+            className="text-2xl font-bold text-main"
+            aria-label={t("nav.home")}
+          >
             {"<MQ />"}
           </a>
 
@@ -49,24 +67,17 @@ const Header = () => {
 
           <ul className="hidden md:flex items-center md:gap-8">
             {navItems.map((item) => (
-              <li key={item.name}>
+              <li key={item.id}>
                 <a
                   href={item.link}
-                  className="
-                  relative
-                  text-slate-700
-                  font-medium
-                  hover:text-main
-                  duration-300
-                  after:absolute
-                  after:left-0
-                  after:-bottom-1
-                  after:h-[2px]
-                  after:w-0
-                  after:bg-main
-                  after:duration-300
-                  hover:after:w-full
-                  "
+                  aria-current={active === item.id ? "true" : undefined}
+                  className={`relative font-medium hover:text-main duration-300
+                  after:absolute after:start-0 after:-bottom-1 after:h-[2px] after:bg-main after:duration-300
+                  ${
+                    active === item.id
+                      ? "text-main after:w-full"
+                      : "text-copy after:w-0 hover:after:w-full"
+                  }`}
                 >
                   {item.name}
                 </a>
@@ -74,88 +85,63 @@ const Header = () => {
             ))}
           </ul>
 
-          {/* Right Button */}
+          {/* Right side */}
 
-          <a
-            href="#contact"
-            className="
-            hidden
-            md:flex
-            justify-center
-            items-center
-            gap-2
-            px-6
-            py-3
-            rounded-xl
-            bg-main
-            text-white
-            font-medium
-            hover:scale-105
-            hover:shadow-lg
-            duration-300
-            "
-          >
-            <span>Hire Me</span>
-            <IoBriefcase />
-          </a>
+          <div className="flex items-center gap-3">
+            <Toggles />
 
-          {/* Mobile Button */}
+            <a
+              href="#contact"
+              className="hidden md:flex justify-center items-center gap-2 px-6 py-2.5 rounded-xl bg-brand text-white font-medium hover:scale-105 hover:shadow-lg duration-300"
+            >
+              <span>{t("nav.hire")}</span>
+              <IoBriefcase />
+            </a>
 
-          <button className="md:hidden text-3xl" onClick={() => setShow(!show)}>
-            {show ? <BsX /> : <BsList />}
-          </button>
+            <button
+              type="button"
+              className="md:hidden text-3xl text-ink"
+              onClick={() => setShow(!show)}
+              aria-expanded={show}
+              aria-label={show ? t("nav.closeMenu") : t("nav.openMenu")}
+            >
+              {show ? <BsX /> : <BsList />}
+            </button>
+          </div>
         </div>
 
         {/* Mobile Menu */}
 
         <div
-          className={`
-          md:hidden
-          overflow-hidden
-          transition-all
-          duration-500
-          ${show ? "max-h-[400px] opacity-100" : "max-h-0 opacity-0"}
-          `}
+          className={`md:hidden overflow-hidden transition-all duration-500 ${
+            show ? "max-h-[500px] opacity-100" : "max-h-0 opacity-0"
+          }`}
         >
-          <ul className="px-1 md:px-6 pb-6 flex flex-col gap-2">
+          <ul className="px-1 pb-6 flex flex-col gap-2">
             {navItems.map((item) => (
-              <li key={item.name}>
+              <li key={item.id}>
                 <a
                   href={item.link}
                   onClick={() => setShow(false)}
-                  className="
-                  block
-                  p-4
-                  rounded-xl
-                  text-slate-700
-                  hover:bg-blue-50
-                  hover:text-main
-                  duration-300
-                  "
+                  className={`block p-4 rounded-xl hover:bg-main/10 hover:text-main duration-300 ${
+                    active === item.id ? "text-main bg-main/10" : "text-copy"
+                  }`}
                 >
                   {item.name}
                 </a>
               </li>
             ))}
 
-            <a
-              href="#contact"
-              className="
-              flex
-              justify-center
-              items-center
-              gap-2
-              text-center
-              py-2
-              md:py-3
-              rounded-xl
-              bg-main
-              text-white
-              "
-            >
-              <span>Hire Me</span>
-              <IoBriefcase />
-            </a>
+            <li>
+              <a
+                href="#contact"
+                onClick={() => setShow(false)}
+                className="flex justify-center items-center gap-2 text-center py-3 rounded-xl bg-brand text-white"
+              >
+                <span>{t("nav.hire")}</span>
+                <IoBriefcase />
+              </a>
+            </li>
           </ul>
         </div>
       </nav>
