@@ -7,7 +7,7 @@ function AboutMe() {
 
   const stats = [
     { value: "10+", label: t("about.stats.projects") },
-    { value: "2+", label: t("about.stats.experience") },
+    { value: "3+", label: t("about.stats.experience") },
     { value: "∞", label: t("about.stats.learning") },
   ];
 
@@ -30,7 +30,9 @@ function AboutMe() {
 
             <p className="text-copy leading-7">
               {t("about.p1Before")}
-              <span className="font-semibold text-main">{t("about.p1Name")}</span>
+              <span className="font-semibold text-main">
+                {t("about.p1Name")}
+              </span>
               {t("about.p1After")}
             </p>
 

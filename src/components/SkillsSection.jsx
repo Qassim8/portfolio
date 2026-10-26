@@ -14,7 +14,7 @@ const SkillsSection = () => {
           desc={t("skills.desc")}
         />
 
-        <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-3 md:gap-6">
+        <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-3 md:gap-6">
           {skills.map(({ img, title }, idx) => (
             <div
               key={title}

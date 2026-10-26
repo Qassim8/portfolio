@@ -23,11 +23,11 @@ const translations = {
     },
     hero: {
       badge: "مطوّر برمجيات • أنظمة وتطبيقات",
-      hello: "أهلاً، أنا",
+      hello: "مرحباً، أنا",
       name: "محمد قاسم",
       tagline: "أحوّل الأفكار إلى حلول تقنية وأنظمة قابلة للتوسّع.",
       description:
-        "مطوّر برمجيات أبني أنظمة وتطبيقات حديثة وعالية الأداء، من تطبيقات الويب وواجهات المستخدم إلى أنظمة ERP المتكاملة، باستخدام تقنيات مثل React، Next.js، Python، Odoo، مع تركيز على البنية النظيفة وجودة التطوير وتجربة مستخدم ذات معنى.",
+        "مطوّر برمجيات أبني أنظمة وتطبيقات حديثة وعالية الأداء، من تطبيقات الويب وواجهات المستخدم إلى أنظمة ERP المتكاملة، باستخدام تقنيات مثل React， Next.js， Python， Odoo، مع تركيز على البنية النظيفة وجودة التطوير وتجربة مستخدم ذات معنى.",
       cv: "تحميل السيرة الذاتية",
       github: "جيت هب",
       avatarAlt: "صورة محمد قاسم",
@@ -43,15 +43,17 @@ const translations = {
         "، مطوّر برمجيات أركّز على بناء تطبيقات ويب حديثة وقابلة للتوسّع ومتجاوبة، ببنية نظيفة وتصميم يضع المستخدم أولاً.",
       p2: "أستمتع بتحويل الأفكار إلى تجارب رقمية ذات قيمة، مع الحفاظ على الأداء وسهولة الصيانة والاهتمام بالتفاصيل.",
       p3: "هدفي ليس كتابة الكود فقط، بل حلّ مشكلات حقيقية وبناء منتجات تصنع قيمة وتحسّن تجربة المستخدمين.",
-      stats: { projects: "مشروع", experience: "سنوات خبرة", learning: "تعلّم مستمر" },
+      stats: {
+        projects: "مشروع",
+        experience: "سنوات خبرة",
+        learning: "تعلّم مستمر",
+      },
       interestsTitle: "الاهتمامات ومجالات التركيز",
       interests: [
         "هندسة الواجهات الأمامية",
         "تحسين الأداء",
-        "أساسيات Node.js",
-        "الهندسة السحابية",
-        "أنظمة ERP",
-        "التعلّم المستمر",
+        "هندسة البنى التحتية",
+        "الذكاء الاصطناعي",
       ],
     },
     skills: {
@@ -86,7 +88,8 @@ const translations = {
       send: "إرسال الرسالة",
       sending: "جارٍ الإرسال...",
       success: "تم إرسال رسالتك بنجاح",
-      failure: "تعذّر إرسال الرسالة، حاول مرة أخرى أو راسلني مباشرة عبر البريد.",
+      failure:
+        "تعذّر إرسال الرسالة، حاول مرة أخرى أو راسلني مباشرة عبر البريد.",
       errors: {
         nameRequired: "الاسم مطلوب",
         nameShort: "يجب أن يتكوّن الاسم من حرفين على الأقل",
@@ -149,15 +152,17 @@ const translations = {
         ", a software developer focused on creating modern, scalable and responsive web applications with clean architecture and user-centered design.",
       p2: "I enjoy transforming ideas into meaningful digital experiences while maintaining performance, maintainability and attention to detail.",
       p3: "My goal is not only to write code, but also to solve real-world problems and build products that create value and improve user experiences.",
-      stats: { projects: "Projects", experience: "Years of experience", learning: "Learning" },
+      stats: {
+        projects: "Projects",
+        experience: "Years of experience",
+        learning: "Learning",
+      },
       interestsTitle: "Interests & Focus Areas",
       interests: [
         "Frontend Architecture",
         "Performance Optimization",
-        "Node.js Fundamentals",
-        "Cloud Engineering",
-        "ERP Systems",
-        "Continuous Learning",
+        "Infrastructure Engineering",
+        "Artificial Intelligence",
       ],
     },
     skills: {
@@ -192,7 +197,8 @@ const translations = {
       send: "Send Message",
       sending: "Sending...",
       success: "Message sent successfully",
-      failure: "Couldn't send your message. Please try again or email me directly.",
+      failure:
+        "Couldn't send your message. Please try again or email me directly.",
       errors: {
         nameRequired: "Name is required",
         nameShort: "Name must be at least 2 characters",
