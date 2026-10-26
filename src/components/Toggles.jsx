@@ -2,17 +2,22 @@ import { BsMoonStarsFill, BsSunFill } from "react-icons/bs";
 import { useI18n } from "../i18n/I18nProvider";
 import { useTheme } from "../theme/ThemeProvider";
 
-const EgyptFlag = () => (
-  <svg viewBox="0 0 30 20" className="w-6 h-4 rounded-[3px] shadow-sm" aria-hidden="true">
-    <rect width="30" height="20" fill="#fff" />
-    <rect width="30" height="6.67" fill="#ce1126" />
-    <rect y="13.33" width="30" height="6.67" fill="#000" />
-    <circle cx="15" cy="10" r="2" fill="#c09300" />
-  </svg>
+const SaudiFlag = () => (
+  <div className="w-6 h-4 rounded-[3px] shadow-sm">
+    <img
+      src="/images/ksa.png"
+      alt="Saudi Arabia"
+      className="w-full h-full object-cover"
+    />
+  </div>
 );
 
 const UKFlag = () => (
-  <svg viewBox="0 0 60 40" className="w-6 h-4 rounded-[3px] shadow-sm" aria-hidden="true">
+  <svg
+    viewBox="0 0 60 40"
+    className="w-6 h-4 rounded-[3px] shadow-sm"
+    aria-hidden="true"
+  >
     <rect width="60" height="40" fill="#012169" />
     <path d="M0 0L60 40M60 0L0 40" stroke="#fff" strokeWidth="8" />
     <path d="M0 0L60 40M60 0L0 40" stroke="#c8102e" strokeWidth="3" />
@@ -36,7 +41,7 @@ const Toggles = () => {
         aria-label={t("toggles.toOtherLabel")}
         className="flex items-center gap-2 text-sm font-semibold text-copy hover:text-main duration-300"
       >
-        {lang === "ar" ? <UKFlag /> : <EgyptFlag />}
+        {lang === "ar" ? <UKFlag /> : <SaudiFlag />}
         <span>{t("toggles.toOther")}</span>
       </button>
 

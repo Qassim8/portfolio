@@ -38,7 +38,7 @@ html {
 }
 
 html[lang="ar"] body {
-  font-family: "IBM Plex Sans Arabic", "Segoe UI", Tahoma, sans-serif;
+  font-family: "Vazirmatn", "Segoe UI", Tahoma, sans-serif;
   /* Relaxed line height keeps long Arabic paragraphs easy on the eye. */
   letter-spacing: 0;
   line-height: 1.75;
